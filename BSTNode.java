@@ -2,14 +2,14 @@
 
 public class BSTNode {
 	// Smaller data is on left, bigger data on right, if parent is null it is the root of the BST
-	private BSTNode left, right, parent;
+	private BSTNode left, right;
 	private int data;
 	// Used to keep track of duplicate values will increment data is already in the tree.
 	private int keyCount; 
 	
 	// Initialize BSTNode with parent and data, children will start as null
 	public BSTNode(int d) {
-		left = right = parent = null;
+		left = right = null;
 		data = d;
 		keyCount = 1;
 	}
@@ -17,14 +17,12 @@ public class BSTNode {
 	// Getters
 	public BSTNode getLeft() { return left; }
 	public BSTNode getRight() { return right; }
-	public BSTNode getParent() { return parent; }
 	public int getData() { return data; }
 	public int getKeyCount() { return keyCount; }
 	
 	// Setters
 	public void setLeft(BSTNode n) { left = n; }
 	public void setRight(BSTNode n) { right = n; }
-	public void setParent(BSTNode n) { parent = n; }
 	public void setData(int d) { data = d; }
 	
 	// Methods

@@ -12,14 +12,27 @@ public class BST {
 	public void setRoot(BSTNode n) { root = n; } 
 	
 	// Methods
+	
+	// In an empty tree inserts the root, otherwise inserts a child into the tree
 	public void insert(BSTNode n) {
 		if(root == null) { root = n; }
 		
 		else { root.insertChild(n); }
 	}
 	
+	// Looks for a number in the tree, returns the node if found, null otherwise
+	private BSTNode search(int i, BSTNode n) {
+		if(n == null) { return null; }
+		
+		else if(i == n.getData() ) { return n; }
+		
+		else if(i > n.getData() ) { return search(i, n.getRight() ); }
+		
+		else { return search(i, n.getLeft() ); }
+	}
+	
 	// In Order traversal of the tree, prints the value and its key count.
-	public void inOrder(BSTNode n) {
+	private void inOrder(BSTNode n) {
 		// If nothing to traverse, return
 		if(n == null) { return; }
 		
@@ -31,6 +44,7 @@ public class BST {
 		}
 	}
 	
-	// Function wrapper
+	// Function wrappers
+	public BSTNode search(int i) { return search(i, root); }
 	public void inOrder() { inOrder(root); }
 }
