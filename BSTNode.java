@@ -2,10 +2,10 @@
 
 public class BSTNode {
 	// Smaller data is on left, bigger data on right, if parent is null it is the root of the BST
-	private BSTNode left, right;
-	private int data;
+	protected BSTNode left, right;
+	protected int data;
 	// Used to keep track of duplicate values will increment data is already in the tree.
-	private int keyCount; 
+	protected int keyCount; 
 	
 	// Initialize BSTNode with parent and data, children will start as null
 	public BSTNode(int d) {

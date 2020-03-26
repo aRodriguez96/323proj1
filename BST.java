@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BST {
-	private BSTNode root;
+	protected BSTNode root;
 	
 	public BST() { root = null; }
 	
@@ -20,6 +20,20 @@ public class BST {
 		if(root == null) { root = n; }
 		
 		else { root.insertChild(n); }
+	}
+	
+	// Calculate the height of the tree with a given node
+	protected int maxDepth(BSTNode n) {
+		if (n == null) { return 0; }
+		
+		else {
+			int maxLeft = maxDepth(n.getLeft() );
+			int maxRight = maxDepth(n.getRight() );
+			
+			int maxDepth = Math.max(maxLeft, maxRight) + 1;
+			
+			return maxDepth;
+		}
 	}
 	
 	// Looks for a number in the tree, returns the node if found, null otherwise
@@ -114,6 +128,7 @@ public class BST {
 	
 	// Function wrappers
 	public BSTNode search(int i) { return search(i, root); }
+	public int maxDepth() { return maxDepth(root); }
 	public void inOrder() { inOrder(root); }
 	public void postOrder() { postOrder(root); }
 	public void preOrder() { preOrder(root); }

@@ -5,38 +5,21 @@ public class Main {
 		
 		/////////ADAM////////////
 		
-		BST bst = new BST();
+		AVL avl = new AVL();
 		
 		for(int i = 0; i < 10; i++) {
 			Random r = new Random();
 			int n = r.nextInt(100);
 			
 			BSTNode node = new BSTNode(n);
-			bst.insert(node);
+			avl.insert(node);
 		}
-		
-		bst.inOrder();
-		System.out.println();
-		
-		bst.postOrder();
-		System.out.println();
-		
-		bst.preOrder();
-		System.out.println();
-		
-		bst.reverseOrder();
-		System.out.println();
-		
-		bst.levelOrder();
-		
-		System.out.println(bst.search(26) );
-		
 		
 		/////////////////////////
 		
 		/////////ALBERT//////////
 		
-		// Input keys (use only 'a' through 'z' and lower case) 
+		/* Input keys (use only 'a' through 'z' and lower case) 
 		String keys[] = {"the", "a", "there", "answer", "any", 
 				 "by", "bye", "their"}; 
 
@@ -67,7 +50,7 @@ public class Main {
 		    System.out.println("thaw --- " + output[1]); 
 		else System.out.println("thaw --- " + output[0]); 
 		
-		/////////////////////////
+		////////////////////////*/
 		
 	}
 }
