@@ -7,7 +7,7 @@ public class Main {
 		
 		BST bst = new BST();
 		
-		for(int i = 0; i < 50; i++) {
+		for(int i = 0; i < 10; i++) {
 			Random r = new Random();
 			int n = r.nextInt(100);
 			
@@ -71,4 +71,3 @@ public class Main {
 		
 	}
 }
->>>>>>> 851c28b15162fd915937f33ca066927464d30013
