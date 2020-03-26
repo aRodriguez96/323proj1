@@ -2,7 +2,7 @@
 
 public class BSTNode {
 	// Smaller data is on left, bigger data on right, if parent is null it is the root of the BST
-	protected BSTNode left, right;
+	protected BSTNode left, right, parent;
 	protected int data;
 	// Used to keep track of duplicate values will increment data is already in the tree.
 	protected int keyCount; 
@@ -17,12 +17,14 @@ public class BSTNode {
 	// Getters
 	public BSTNode getLeft() { return left; }
 	public BSTNode getRight() { return right; }
+	public BSTNode getParent() { return parent; }
 	public int getData() { return data; }
 	public int getKeyCount() { return keyCount; }
 	
 	// Setters
 	public void setLeft(BSTNode n) { left = n; }
 	public void setRight(BSTNode n) { right = n; }
+	public void setParent(BSTNode n) { parent = n; }
 	public void setData(int d) { data = d; }
 	
 	// Methods
@@ -34,7 +36,10 @@ public class BSTNode {
 			// If there is no node, insert the data
 			if(right == null) { right = n; }
 			// Otherwise, call insert on this nodes right child
-			else { right.insertChild(n); }
+			else { 
+				right.insertChild(n); 
+				n.setParent(right);
+			}
 		}
 		
 		// Else if the number coming in is smaller than this nodes data, try inserting to left child
@@ -42,7 +47,10 @@ public class BSTNode {
 			// If there is no node, insert the data
 			if(left == null) { left = n; }
 			// Otherwise, call insert on this nodes left child
-			else { left.insertChild(n); }
+			else { 
+				left.insertChild(n); 
+				n.setParent(left);
+			}
 		}
 		
 		// If it's the same number, don't expand the tree, increment key count instead
