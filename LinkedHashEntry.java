@@ -1,5 +1,3 @@
-package hashtoupload;
-
 class LinkedHashEntry 
 {
     int key;
