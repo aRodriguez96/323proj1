@@ -4,16 +4,16 @@ public class Main {
 	public static void main(String args[]) {
 		
 		/////////ADAM////////////
+		AVLTree tree = new AVLTree();
 		
-		AVL avl = new AVL();
-		
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < 50; i++) {
 			Random r = new Random();
 			int n = r.nextInt(100);
+			tree.root = tree.insert(tree.root, n);
 			
-			BSTNode node = new BSTNode(n);
-			avl.insert(node);
 		}
+	     
+	     tree.levelOrder();
 		
 		/////////////////////////
 		

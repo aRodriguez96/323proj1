@@ -15,15 +15,22 @@ public class BST {
 	
 	// Methods
 	
+	public int height(BSTNode n) {
+		if(n == null) { return 0; } 
+		return 1 + Math.max(height(n.getLeft() ), height(n.getRight() ) );
+	}
+	
 	// In an empty tree inserts the root, otherwise inserts a child into the tree
-	public void insert(BSTNode n) {
+	public BSTNode insert(BSTNode n) {
 		if(root == null) { root = n; }
 		
 		else { root.insertChild(n); }
+		
+		return n;
 	}
 	
 	// Calculate the height of the tree with a given node
-	protected int maxDepth(BSTNode n) {
+	private int maxDepth(BSTNode n) {
 		if (n == null) { return 0; }
 		
 		else {
