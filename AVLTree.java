@@ -1,5 +1,4 @@
 /* This AVL is not my work, taken from GeeksForGeeks.com*/ 
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -25,9 +24,19 @@ public class AVLTree{
 	    } 
 	  
 	    // A utility function to get maximum of two integers 
-	    int max(int a, int b) { 
-	        return (a > b) ? a : b; 
-	    } 
+	    int max(int a, int b) { return (a > b) ? a : b;} 
+	    
+	    // Search for a number in the tree
+	    private Node search(int i, Node n) {
+	    	if (n == null) { return null; }
+	    	
+	    	else if (i == n.key) { return n; }
+	    	
+	    	else if (i > n.key) { return search(i, n.right); }
+	    	
+	    	else { return search(i, n.left); }
+	    	
+	    }
 	  
 	    // A utility function to right rotate subtree rooted with y 
 	    // See the diagram given above. 
@@ -154,4 +163,5 @@ public class AVLTree{
 		}
 	    
 	    public void levelOrder() { levelOrder(root); }
+	    public Node search(int i) { return search(i, root); }
 	}

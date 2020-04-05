@@ -5,16 +5,35 @@ public class Main {
 	public static void main(String args[]) {
 		
 		/////////ADAM////////////
-		AVLTree tree = new AVLTree();
+		BST bst = new BST();
+		AVLTree avl = new AVLTree();
 		
 		for(int i = 0; i < 50; i++) {
 			Random r = new Random();
 			int n = r.nextInt(100);
-			tree.root = tree.insert(tree.root, n);
+			
+			BSTNode node = new BSTNode(n);
+			bst.insert(node);
+			
+			avl.root = avl.insert(avl.root, n);
 			
 		}
+		
+		int numToSearch = 10;
 	     
-	     tree.levelOrder();
+		System.out.println("BST Level Order:");
+		bst.levelOrder();
+		System.out.println();
+		
+		System.out.println("AVL Level Order");
+	    avl.levelOrder();
+	    System.out.println();
+	    
+	    System.out.println(bst.search(numToSearch) );
+	    
+	    // Look for a number in the tree, always starts at root
+	    System.out.println(avl.search(numToSearch) );
+	    System.out.println();
 		
 		/////////////////////////
 		
