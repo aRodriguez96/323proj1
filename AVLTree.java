@@ -30,11 +30,20 @@ public class AVLTree{
 	    private Node search(int i, Node n) {
 	    	if (n == null) { return null; }
 	    	
-	    	else if (i == n.key) { return n; }
+	    	else if (i == n.key) { 
+	    		global.operations++;
+	    		return n; 
+	    	}
 	    	
-	    	else if (i > n.key) { return search(i, n.right); }
+	    	else if (i > n.key) { 
+	    		global.operations++;
+	    		return search(i, n.right); 
+	    	}
 	    	
-	    	else { return search(i, n.left); }
+	    	else { 
+	    		global.operations++;
+	    		return search(i, n.left); 
+	    	}
 	    	
 	    }
 	  
@@ -164,4 +173,5 @@ public class AVLTree{
 	    
 	    public void levelOrder() { levelOrder(root); }
 	    public Node search(int i) { return search(i, root); }
+	    public int height() { return height(root); }
 	}

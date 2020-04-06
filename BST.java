@@ -45,13 +45,24 @@ public class BST {
 	
 	// Looks for a number in the tree, returns the node if found, null otherwise
 	private BSTNode search(int i, BSTNode n) {
-		if(n == null) { return null; }
+		if(n == null) { 
+			return null;
+		}
 		
-		else if(i == n.getData() ) { return n; }
+		else if(i == n.getData() ) { 
+			global.operations++;
+			return n; 
+		}
 		
-		else if(i > n.getData() ) { return search(i, n.getRight() ); }
+		else if(i > n.getData() ) { 
+			global.operations++;
+			return search(i, n.getRight() ); 
+		}
 		
-		else { return search(i, n.getLeft() ); }
+		else { 
+			global.operations++;
+			return search(i, n.getLeft() ); 
+		}
 	}
 	
 	// Level order traversal of the tree, prints node values and its key count
