@@ -43,14 +43,15 @@ public class TrieNode {
 	       
 	        for (level = 0; level < length; level++) 
 	        { 
+	        	global.operations++;
 	            index = key.charAt(level) - 'a'; 
 	       
 	            if (pCrawl.children[index] == null) 
 	                return false; 
-	       
+	            
 	            pCrawl = pCrawl.children[index]; 
 	        } 
-	       
+	      
 	        return (pCrawl != null && pCrawl.isEndOfWord); 
 	    } 
        

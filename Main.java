@@ -15,6 +15,10 @@ public class Main {
 	     long worstt = 0;
 	     long totalt = 0;
 	     int temp = 0;
+	 	int maxLength = 0;
+	 	String shortest = "";
+	 	String longest = "";
+	     String str = "";
 	     
 		BST bst10 = new BST();
 		AVLTree avl10 = new AVLTree();
@@ -24,6 +28,10 @@ public class Main {
 		AVLTree avl1000 = new AVLTree();
 		BST bst10000 = new BST();
 		AVLTree avl10000 = new AVLTree();
+		TrieNode trie10 = new TrieNode(); 
+		TrieNode trie100 = new TrieNode(); 
+		TrieNode trie1000 = new TrieNode();
+		TrieNode trie10000 = new TrieNode(); 
 	
 	/////~~~~~BST~~~~~~//////
 	
@@ -228,6 +236,7 @@ public class Main {
 		   worstt = 0;
 		    totalt = 0;
 		   temp = 0;
+		 
 		   global.operations = 0;
 		   for(int i = 1; i <= 10;i++) {
 				startTime = System.currentTimeMillis();
@@ -309,7 +318,7 @@ public class Main {
 		    totalt = 0;
 		   temp = 0;
 		   global.operations = 0;
-		   for(int i = 1; i <= 1000;i++) {
+		   for(int i = 1; i <= 10;i++) {
 				startTime = System.currentTimeMillis();
 				if(avl1000.search(i) != null) {}
 				
@@ -379,131 +388,469 @@ public class Main {
 			
 			////////
 			
+			//////TRIE////////
+			System.out.println();
+			///////10///////
+			
+			bestc = 100000;
+		    worstc = 1;
+		   bestt = 0;
+		   worstt = 0;
+		    totalt = 0;
+		    shortest = "";
+			 longest = "";
+		   global.operations = 0;
+		   maxLength = 0;
+		    
+			Scanner textscanner10 = new Scanner(new File("wordsource10.txt"));
+			str = "";
+			while(textscanner10.hasNextLine())
+			{
+				 str = textscanner10.nextLine();
+				 trie10.insert(str); 
+				 if(str.length() > maxLength) {
+					 maxLength = str.length();
+					 longest = str;
+				 }
+				 if(str.length()==1) {
+					 shortest = str;
+				 }
+			     //System.out.println(temp);
+			}
+			//adds 1 to account for root
+			maxLength++;
+			 
+			
+				startTime = System.currentTimeMillis();
+				if(trie10.search(shortest) == true) {}
+				stopTime = System.currentTimeMillis();
+				bestc = global.operations;
+				global.operations = 0;
+		    	elapsedTime = stopTime - startTime;
+		    	bestt = elapsedTime;
+		    
+		    	
+		    	startTime = System.currentTimeMillis();
+				if(trie10.search(longest) == true) {}
+				stopTime = System.currentTimeMillis();
+			    worstc = global.operations;
+				global.operations = 0;
+		    	elapsedTime = stopTime - startTime;
+		    	worstt = elapsedTime;
+		    	
+		    	
+				global.operations = 0;
+				
+				
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		//System.out.println("BST Level Order:");
-		//bst10.levelOrder();
-		//System.out.println();
+			System.out.println("~~~~~~~~~TRIE WITH 10 RANDOM WORDS~~~~~~~~~");
+			System.out.println("Max Depth: "+maxLength);
+			System.out.println("Best comparisons: "+bestc);
+			System.out.println("Worst comparisons: "+worstc);
+			System.out.println();
+			System.out.println("Best time: "+bestt);
+			System.out.println("Worst time: "+worstt);
+
 		
-		//System.out.println("AVL Level Order");
-	   // avl10.levelOrder();
-	   // System.out.println();
-	    
-	   // System.out.println(bst10.search(numToSearch) );
-	    
-	    // Look for a number in the tree, always starts at root
-	   // System.out.println(avl10.search(numToSearch) );
-	  // System.out.println();
-		/*
-		/////////////////////////
+		//////////////////
 		System.out.println();
-		/////////ALBERT//////////
+		//////100////////
+			
+			bestc = 100000;
+		    worstc = 1;
+		   bestt = 0;
+		   worstt = 0;
+		    totalt = 0;
+		    shortest = "";
+			 longest = "";
+		   global.operations = 0;
+		   maxLength = 0;
+		    
+			Scanner textscanner100 = new Scanner(new File("wordsource100.txt"));
+			str = "";
+			while(textscanner100.hasNextLine())
+			{
+				 str = textscanner100.nextLine();
+				 trie100.insert(str); 
+				 if(str.length() > maxLength) {
+					 maxLength = str.length();
+					 longest = str;
+				 }
+				 if(str.length()==1) {
+					 shortest = str;
+				 }
+			     //System.out.println(temp);
+			}
+			//adds 1 to account for root
+			maxLength++;
+			 
+			
+				startTime = System.currentTimeMillis();
+				if(trie100.search(shortest) == true) {}
+				stopTime = System.currentTimeMillis();
+				bestc = global.operations;
+				global.operations = 0;
+		    	elapsedTime = stopTime - startTime;
+		    	bestt = elapsedTime;
+		    
+		    	
+		    	startTime = System.currentTimeMillis();
+				if(trie100.search(longest) == true) {}
+				stopTime = System.currentTimeMillis();
+			    worstc = global.operations;
+				global.operations = 0;
+		    	elapsedTime = stopTime - startTime;
+		    	worstt = elapsedTime;
+		    	
+		    	
+				global.operations = 0;
+				
+				
+			
+			
+			System.out.println("~~~~~~~~~TRIE WITH 100 RANDOM WORDS~~~~~~~~~");
+			System.out.println("Max Depth: "+maxLength);
+			System.out.println("Best comparisons: "+bestc);
+			System.out.println("Worst comparisons: "+worstc);
+			System.out.println();
+			System.out.println("Best time: "+bestt);
+			System.out.println("Worst time: "+worstt);
+			
+			///////////////
+			System.out.println();
+			///////1000///////
+		
+			bestc = 100000;
+		    worstc = 1;
+		   bestt = 0;
+		   worstt = 0;
+		    totalt = 0;
+		    shortest = "";
+			 longest = "";
+		   global.operations = 0;
+		   maxLength = 0;
+		    
+			Scanner textscanner1000 = new Scanner(new File("wordsource1000.txt"));
+			str = "";
+			while(textscanner1000.hasNextLine())
+			{
+				 str = textscanner1000.nextLine();
+				 trie1000.insert(str); 
+				 if(str.length() > maxLength) {
+					 maxLength = str.length();
+					 longest = str;
+				 }
+				 if(str.length()==1) {
+					 shortest = str;
+				 }
+			     //System.out.println(temp);
+			}
+			//adds 1 to account for root
+			maxLength++;
+			 
+			
+				startTime = System.currentTimeMillis();
+				if(trie1000.search(shortest) == true) {}
+				stopTime = System.currentTimeMillis();
+				bestc = global.operations;
+				global.operations = 0;
+		    	elapsedTime = stopTime - startTime;
+		    	bestt = elapsedTime;
+		    
+		    	
+		    	startTime = System.currentTimeMillis();
+				if(trie1000.search(longest) == true) {}
+				stopTime = System.currentTimeMillis();
+			    worstc = global.operations;
+				global.operations = 0;
+		    	elapsedTime = stopTime - startTime;
+		    	worstt = elapsedTime;
+		    	
+		    	
+				global.operations = 0;
+				
+				
+			
+			
+			System.out.println("~~~~~~~~~TRIE WITH 1000 RANDOM WORDS~~~~~~~~~");
+			System.out.println("Max Depth: "+maxLength);
+			System.out.println("Best comparisons: "+bestc);
+			System.out.println("Worst comparisons: "+worstc);
+			System.out.println();
+			System.out.println("Best time: "+bestt);
+			System.out.println("Worst time: "+worstt);
+		
+		////////////
+		System.out.println();
+		////////10000////////
+			
+			bestc = 100000;
+		    worstc = 1;
+		   bestt = 0;
+		   worstt = 0;
+		    totalt = 0;
+		    shortest = "";
+			 longest = "";
+		   global.operations = 0;
+		   maxLength = 0;
+		    
+			Scanner textscanner10000 = new Scanner(new File("wordsource10000.txt"));
+			str = "";
+			while(textscanner10000.hasNextLine())
+			{
+				 str = textscanner10000.nextLine();
+				 trie10000.insert(str); 
+				 if(str.length() > maxLength) {
+					 maxLength = str.length();
+					 longest = str;
+				 }
+				 if(str.length()==1) {
+					 shortest = str;
+				 }
+			     //System.out.println(temp);
+			}
+			//adds 1 to account for root
+			maxLength++;
+			 
+			
+				startTime = System.currentTimeMillis();
+				if(trie10000.search(shortest) == true) {}
+				stopTime = System.currentTimeMillis();
+				bestc = global.operations;
+				global.operations = 0;
+		    	elapsedTime = stopTime - startTime;
+		    	bestt = elapsedTime;
+		    
+		    	
+		    	startTime = System.currentTimeMillis();
+				if(trie10000.search(longest) == true) {}
+				stopTime = System.currentTimeMillis();
+			    worstc = global.operations;
+				global.operations = 0;
+		    	elapsedTime = stopTime - startTime;
+		    	worstt = elapsedTime;
+		    	
+		    	
+				global.operations = 0;
+				
+				
+			
+			
+			System.out.println("~~~~~~~~~TRIE WITH 10000 RANDOM WORDS~~~~~~~~~");
+			System.out.println("Max Depth: "+maxLength);
+			System.out.println("Best comparisons: "+bestc);
+			System.out.println("Worst comparisons: "+worstc);
+			System.out.println();
+			System.out.println("Best time: "+bestt);
+			System.out.println("Worst time: "+worstt);
+		
+			/////////////
+			System.out.println();
+			///////HASHMAP WITH CHAINING////////
+			//////10///////
+			bestc = 100000;
+		    worstc = 1;
+		   avgc = 0;
+		   bestt = 0;
+		   worstt = 0;
+		    totalt = 0;
+		   temp = 0;
+		   global.operations = 0;
+			HashTable ht10 = new HashTable(5);
+			Scanner hashscanner10 = new Scanner(new File("source10.txt"));
+			
+			while(hashscanner10.hasNextInt())
+			{
+				temp = hashscanner10.nextInt();
+			     ht10.insert(temp);
+			     //System.out.println(temp);
+			}
+			
+			for(int i = 1; i <= 10;i++) {
+				startTime = System.currentTimeMillis();
+				if(ht10.get(i)==1) {}
+				stopTime = System.currentTimeMillis();
+				if(global.operations < bestc) bestc = global.operations;
+				if(global.operations > worstc) worstc = global.operations;
+				avgc += global.operations;
+				global.operations = 0;
+		    	elapsedTime = stopTime - startTime;
+		    	totalt += elapsedTime;
+		    	if(elapsedTime < bestt) bestt = elapsedTime;
+		    	if(elapsedTime > worstt) worstt = elapsedTime;
+		    	
+				global.operations = 0;
+			}
+			//ht10.printHashTable();  
+
+			System.out.println("~~~~~~~~~HT WITH 10 RANDOM NUMBERS~~~~~~~~~");
+			System.out.println("Size of Table: 5");
+			System.out.println("Best comparisons: "+bestc);
+			System.out.println("Worst comparisons: "+worstc);
+			System.out.println("Average comparisons: "+avgc/10);
+			System.out.println();
+			System.out.println("Best time: "+bestt);
+			System.out.println("Worst time: "+worstt);
+			System.out.println("Average time: "+totalt/10);
+			System.out.println("Total time: "+totalt);
+			
+			/////////////
+			System.out.println();
+			/////////////
+			
+			//////100///////
+					bestc = 100000;
+				    worstc = 1;
+				   avgc = 0;
+				   bestt = 0;
+				   worstt = 0;
+				    totalt = 0;
+				   temp = 0;
+				   global.operations = 0;
+					HashTable ht100 = new HashTable(50);
+					Scanner hashscanner100 = new Scanner(new File("source100.txt"));
+					
+					while(hashscanner100.hasNextInt())
+					{
+						temp = hashscanner100.nextInt();
+					     ht100.insert(temp);
+					     //System.out.println(temp);
+					}
+					
+					for(int i = 1; i <= 100;i++) {
+						startTime = System.currentTimeMillis();
+						if(ht100.get(i)==1) {}
+						stopTime = System.currentTimeMillis();
+						if(global.operations < bestc) bestc = global.operations;
+						if(global.operations > worstc) worstc = global.operations;
+						avgc += global.operations;
+						global.operations = 0;
+				    	elapsedTime = stopTime - startTime;
+				    	totalt += elapsedTime;
+				    	if(elapsedTime < bestt) bestt = elapsedTime;
+				    	if(elapsedTime > worstt) worstt = elapsedTime;
+				    	
+						global.operations = 0;
+					}
+				
+					System.out.println("~~~~~~~~~HT WITH 100 RANDOM NUMBERS~~~~~~~~~");
+					System.out.println("Size of Table: 50");
+					System.out.println("Best comparisons: "+bestc);
+					System.out.println("Worst comparisons: "+worstc);
+					System.out.println("Average comparisons: "+avgc/100);
+					System.out.println();
+					System.out.println("Best time: "+bestt);
+					System.out.println("Worst time: "+worstt);
+					System.out.println("Average time: "+totalt/100);
+					System.out.println("Total time: "+totalt);
+					
+					/////////////
+					System.out.println();
+					//////1000///////
+					bestc = 100000;
+				    worstc = 1;
+				   avgc = 0;
+				   bestt = 0;
+				   worstt = 0;
+				    totalt = 0;
+				   temp = 0;
+				   global.operations = 0;
+					HashTable ht1000 = new HashTable(500);
+					Scanner hashscanner1000 = new Scanner(new File("source1000.txt"));
+					
+					while(hashscanner1000.hasNextInt())
+					{
+						temp = hashscanner1000.nextInt();
+					     ht1000.insert(temp);
+					     //System.out.println(temp);
+					}
+					
+					for(int i = 1; i <= 1000;i++) {
+						startTime = System.currentTimeMillis();
+						if(ht1000.get(i)==1) {}
+						stopTime = System.currentTimeMillis();
+						if(global.operations < bestc) bestc = global.operations;
+						if(global.operations > worstc) worstc = global.operations;
+						avgc += global.operations;
+						global.operations = 0;
+				    	elapsedTime = stopTime - startTime;
+				    	totalt += elapsedTime;
+				    	if(elapsedTime < bestt) bestt = elapsedTime;
+				    	if(elapsedTime > worstt) worstt = elapsedTime;
+				    	
+						global.operations = 0;
+					}
+				
+					System.out.println("~~~~~~~~~HT WITH 1000 RANDOM NUMBERS~~~~~~~~~");
+					System.out.println("Size of Table: 500");
+					System.out.println("Best comparisons: "+bestc);
+					System.out.println("Worst comparisons: "+worstc);
+					System.out.println("Average comparisons: "+avgc/1000);
+					System.out.println();
+					System.out.println("Best time: "+bestt);
+					System.out.println("Worst time: "+worstt);
+					System.out.println("Average time: "+totalt/1000);
+					System.out.println("Total time: "+totalt);
+					//ht1000.printHashTable(); 
+					/////////////
+					System.out.println();
+					/////////10000////////
+					bestc = 100000;
+				    worstc = 1;
+				   avgc = 0;
+				   bestt = 0;
+				   worstt = 0;
+				    totalt = 0;
+				   temp = 0;
+				   global.operations = 0;
+					HashTable ht10000 = new HashTable(5000);
+					Scanner hashscanner10000 = new Scanner(new File("source10000.txt"));
+					
+					while(hashscanner10000.hasNextInt())
+					{
+						temp = hashscanner10000.nextInt();
+					     ht10000.insert(temp);
+					     //System.out.println(temp);
+					}
+					
+					for(int i = 1; i <= 10000;i++) {
+						startTime = System.currentTimeMillis();
+						if(ht10000.get(i)==1) {}
+						stopTime = System.currentTimeMillis();
+						if(global.operations < bestc) bestc = global.operations;
+						if(global.operations > worstc) worstc = global.operations;
+						avgc += global.operations;
+						global.operations = 0;
+				    	elapsedTime = stopTime - startTime;
+				    	totalt += elapsedTime;
+				    	if(elapsedTime < bestt) bestt = elapsedTime;
+				    	if(elapsedTime > worstt) worstt = elapsedTime;
+				    	
+						global.operations = 0;
+					}
+				
+					System.out.println("~~~~~~~~~HT WITH 10000 RANDOM NUMBERS~~~~~~~~~");
+					System.out.println("Size of Table: 5000");
+					System.out.println("Best comparisons: "+bestc);
+					System.out.println("Worst comparisons: "+worstc);
+					System.out.println("Average comparisons: "+avgc/10000);
+					System.out.println();
+					System.out.println("Best time: "+bestt);
+					System.out.println("Worst time: "+worstt);
+					System.out.println("Average time: "+totalt/10000);
+					System.out.println("Total time: "+totalt);
+					
+
+			
+					
+					
+					
+					
+					
+					
 	
-		//Input keys (use only 'a' through 'z' and lower case) 
-		String keys[] = {"the", "a", "there", "answer", "any", 
-				 "by", "bye", "their"}; 
-
-		String output[] = {"Not present in trie", "Present in trie"}; 
-
-
-		TrieNode root = new TrieNode(); 
-
-		// Construct trie 
-		int i; 
-		for (i = 0; i < keys.length ; i++) 
-		    root.insert(keys[i]); 
-
-		// Search for different keys 
-		if(root.search("the") == true) 
-		    System.out.println("the --- " + output[1]); 
-		else System.out.println("the --- " + output[0]); 
-
-		if(root.search("these") == true) 
-		    System.out.println("these --- " + output[1]); 
-		else System.out.println("these --- " + output[0]); 
-
-		if(root.search("their") == true) 
-		    System.out.println("their --- " + output[1]); 
-		else System.out.println("their --- " + output[0]); 
-
-		if(root.search("thaw") == true) 
-		    System.out.println("thaw --- " + output[1]); 
-		else System.out.println("thaw --- " + output[0]); 
-		
-		////////////////////////
-		*/
-	   /*
-		////////RAYHAN/////////
-		int num = 0;
-		Scanner scan = new Scanner(System.in);
-        System.out.println("Hash Table Test\n\n");
-        System.out.println("Enter size hash table");
-        int sizeholder =scan.nextInt();
-        System.out.println("Enter size of inputs");
-        int sizeholder_for_inputs =scan.nextInt();
-        // Make object of HashTable 
-        HashTable ht = new HashTable(sizeholder );
-
-        char ch;
-        //  Perform HashTable operations  
-        do    
-        {
-            System.out.println("\nHash Table Operations\n");
-            System.out.println("1. insert ");
-            System.out.println("2. remove");
-            System.out.println("3. get");            
-            System.out.println("4. clear");
-            System.out.println("5. size");
- 
-            int choice = scan.nextInt();            
-            switch (choice)
-            {
-            case 1 : 
-                System.out.println("Enter value");
-                num = scan.nextInt();
-            
-
-                	   ht.insert(num); 
-              
-                break;                          
-            case 2 :                 
-                System.out.println("Enter key");
-                ht.remove( scan.nextInt() ); 
-                break;                        
-            case 3 : 
-                System.out.println("Enter the value");
-                System.out.println("Value = "+ ht.get( scan.nextInt() )); 
-                break;                                   
-            case 4 : 
-                ht.makeEmpty();
-                System.out.println("Hash Table Cleared\n"); 
-                break;
-            case 5 : 
-                System.out.println("Size = "+ ht.getSize() );
-                break;         
-            default : 
-                System.out.println("Wrong Entry \n ");
-            break;   
-            }
-        // Display hash table 
-            ht.printHashTable();  
-
-        System.out.println("\nDo you want to continue (Type y or n) \n");
-            ch = scan.next().charAt(0);                        
-        } while (ch == 'Y'|| ch == 'y');
-		
-		*/
-		
-		///////////////////////
+			
 		
 	}
 }

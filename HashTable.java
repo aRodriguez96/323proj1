@@ -36,8 +36,10 @@ class HashTable
         {
             LinkedHashEntry entry = table[hash];
             while (entry.next != null && (entry.key == hash)) {
-                entry = entry.next;
+            	entry = entry.next;
+            	global.operations++;
             if (entry.value == valuee)
+            	global.operations++;
                 return 1;
             }
             
